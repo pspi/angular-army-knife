@@ -1,0 +1,12 @@
+*.sublime-workspace
+.baseDir.ts
+.DS_Store
+.sass-cache
+.tscache
+bower_components
+node_modules
+src/static
+src/ts/browser/partials.ts
+tmp
+tscommand-*txt
+npm-debug.log

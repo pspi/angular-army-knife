@@ -1,0 +1,21 @@
+{
+    "name": "angular-army-knife",
+    "version": "0.0.1",
+    "homepage": "https://github.com/pspi/angular-army-knife",
+    "authors": [
+        "pspi <pspi@users.noreply.github.com>"
+    ],
+    "description": "Directives and utilities for AngularJS.",
+    "main": "dist/angular-army-knife.js",
+    "keywords": [
+        "angularjs"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}

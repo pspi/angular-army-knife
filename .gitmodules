@@ -1,0 +1,4 @@
+[submodule "src/DefinitelyTyped"]
+	path = src/DefinitelyTyped
+	url = https://github.com/pspi/DefinitelyTyped.git
+	branch = master
