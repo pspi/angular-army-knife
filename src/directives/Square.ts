@@ -4,6 +4,8 @@ module Square {
     // limit redraws when for example resizing window
     var MAX_RESIZE_FREQUENCY_MSEC = 1000 / 10;
 
+    var RESIZE_EVENT = 'ng-army-knife:resize';
+
     // TODO: do unittest for this
     export function Directive($window: ng.IWindowService): ng.IDirective {
         return {
@@ -21,6 +23,7 @@ module Square {
                             element.height(size);
                             element.width(size);
                         }
+                        element.trigger(RESIZE_EVENT);
                     }
                 }, MAX_RESIZE_FREQUENCY_MSEC);
                 // run at every $digest cycle

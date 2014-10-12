@@ -2,6 +2,8 @@ var Square;
 (function (Square) {
     var MAX_RESIZE_FREQUENCY_MSEC = 1000 / 10;
 
+    var RESIZE_EVENT = 'ng-army-knife:resize';
+
     function Directive($window) {
         return {
             restrict: 'A',
@@ -18,6 +20,7 @@ var Square;
                             element.height(size);
                             element.width(size);
                         }
+                        element.trigger(RESIZE_EVENT);
                     }
                 }, MAX_RESIZE_FREQUENCY_MSEC);
 
