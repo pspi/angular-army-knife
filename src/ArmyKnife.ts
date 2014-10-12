@@ -2,4 +2,5 @@
 
 var ngArmyKnife = angular.module('ngArmyKnife', []);
 
-ngArmyKnife.directive('ngArmyKnifeSquare', ['$window', Square.Directive]);
+ngArmyKnife.directive('ngArmyKnifeExpandSquare', ['$window', Expand.ExpandSquare]);
+ngArmyKnife.directive('ngArmyKnifeExpand', ['$window', Expand.Expand]);
