@@ -11,8 +11,13 @@ var Square;
                     var size = Math.min(element.parent().height(), element.parent().width());
                     if (current != size) {
                         current = size;
-                        element.height(size);
-                        element.width(size);
+                        if (element.prop('tagName').toLowerCase() == 'canvas') {
+                            element[0].height = size;
+                            element[0].width = size;
+                        } else {
+                            element.height(size);
+                            element.width(size);
+                        }
                     }
                 }, MAX_RESIZE_FREQUENCY_MSEC);
 

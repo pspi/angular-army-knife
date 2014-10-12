@@ -8,14 +8,19 @@ module Square {
     export function Directive($window: ng.IWindowService): ng.IDirective {
         return {
             restrict: 'A',
-            link: (scope, element, attrs) => {
+            link: (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) => {
                 var current;
                 var readjust = _.throttle(() => {
                     var size = Math.min(element.parent().height(), element.parent().width());
                     if (current != size) {
                         current = size;
-                        element.height(size);
-                        element.width(size);
+                        if (element.prop('tagName').toLowerCase() == 'canvas') {
+                            (<HTMLCanvasElement> element[0]).height = size;
+                            (<HTMLCanvasElement> element[0]).width = size;
+                        } else {
+                            element.height(size);
+                            element.width(size);
+                        }
                     }
                 }, MAX_RESIZE_FREQUENCY_MSEC);
                 // run at every $digest cycle
