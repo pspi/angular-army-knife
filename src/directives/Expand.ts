@@ -17,14 +17,29 @@ module Expand {
                     height: 0,
                     width: 0
                 };
+                var elementHeightFluff = element.outerHeight(true) - element.height();
+                var elementWidthFluff = element.outerWidth(true) - element.width();
                 var readjust = _.throttle(() => {
-                    var size = decideDimensions(element.parent().height(), element.parent().width());
+                    var size = decideDimensions(element.parent().height() - elementHeightFluff, element.parent().width() - elementWidthFluff);
                     if (!_.isEqual(current, size)) {
                         current = size;
                         if (element.prop('tagName').toLowerCase() == 'canvas') {
+                            var $canvas = element;
                             var canvas = <HTMLCanvasElement> element[0];
-                            canvas.height = size.height;
-                            canvas.width = size.width;
+                            
+                            if (window.devicePixelRatio && window.devicePixelRatio > 1) {
+
+                                $canvas.attr('width', size.width * window.devicePixelRatio);
+                                $canvas.attr('height', size.height * window.devicePixelRatio);
+                                $canvas.css('width', size.width);
+                                $canvas.css('height', size.height);
+//                                canvas.getContext("2d").scale(window.devicePixelRatio, window.devicePixelRatio);
+
+                            } else {
+                                canvas.height = size.height;
+                                canvas.width = size.width;
+                            }
+
                         } else {
                             element.height(size.height);
                             element.width(size.width);

@@ -1,4 +1,4 @@
-/// <reference path='./directives/Square.ts'/>
+/// <reference path='./directives/Expand.ts'/>
 
 var ngArmyKnife = angular.module('ngArmyKnife', []);
 
