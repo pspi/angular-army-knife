@@ -1,7 +1,7 @@
 
 module Expand {
 
-    var RESIZE_THROTTLE_MSEC = 1000 / 5;
+    var RESIZE_THROTTLE_MSEC = 1000 / 15;
     var RESIZE_EVENT = 'ng-army-knife:resize';
 
     interface R {
