@@ -47,6 +47,8 @@ module Expand {
                         element.trigger(RESIZE_EVENT);
                     }
                 }, RESIZE_THROTTLE_MSEC);
+                // run right after when in dom
+                setTimeout(readjust, 0);
                 // run at every $digest cycle
                 scope.$watch(readjust);
                 // run when window resized, this uses jquery since angular does not provide support for this directly

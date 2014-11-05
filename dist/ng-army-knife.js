@@ -38,6 +38,8 @@ var Expand;
                     }
                 }, RESIZE_THROTTLE_MSEC);
 
+                setTimeout(readjust, 0);
+
                 scope.$watch(readjust);
 
                 angular.element($window).on('resize', readjust);
